@@ -70,6 +70,7 @@ Each Haskell module starts with the "module <MODULE_NAME> where" line.
 Modules should have the same name as the corresponding file with
 the `.hs` extension.
 -}
+{-# OPTIONS_GHC -Wno-unused-matches #-}
 module Chapter1 where
 
 {- |
@@ -429,6 +430,7 @@ task is to specify the type of this function.
 49
 -}
 
+squareSum :: Num a => a -> a -> a
 squareSum x y = (x + y) * (x + y)
 
 
@@ -490,6 +492,7 @@ Implement a function that returns the last digit of a given number.
   whether it works for you!
 -}
 -- DON'T FORGET TO SPECIFY THE TYPE IN HERE
+lastDigit :: Integral a => a -> a
 lastDigit n = mod n 10
 
 
@@ -554,6 +557,7 @@ value after "=" where the condition is true.
 Casual reminder about adding top-level type signatures for all functions :)
 -}
 
+mid :: p1 -> p2 -> p3 -> p2
 mid x y z = y
 
 {- |
@@ -568,6 +572,7 @@ True
 >>> isVowel 'x'
 False
 -}
+isVowel :: Char -> Bool
 isVowel c | c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' = True
     | c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' = True
     | otherwise = False
@@ -637,6 +642,7 @@ Try to introduce variables in this task (either with let-in or where) to avoid
 specifying complex expressions.
 -}
 
+sumLast2 :: Integral a => a -> a
 sumLast2 n = a + b 
     where
         a = n `mod` 10
@@ -663,6 +669,7 @@ You need to use recursion in this task. Feel free to return to it later, if you
 aren't ready for this boss yet!
 -}
 
+firstDigit :: Integral t => t -> t
 firstDigit n 
   | n < 0     = firstDigit (-n)
   | n < 10    = n
